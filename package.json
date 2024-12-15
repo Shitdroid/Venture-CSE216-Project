@@ -1,0 +1,28 @@
+{
+    "name": "venture",
+    "version": "1.0.0",
+    "description": "our database project",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "author": "Wasif",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.20.0",
+        "bootstrap": "^5.2.0",
+        "bootstrap-icons": "^1.9.1",
+        "bs-stepper": "^1.7.0",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.0.1",
+        "ejs": "^3.1.8",
+        "express": "^4.18.1",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "oracledb": "^5.4.0"
+    }
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- font awesome file link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>www.venture.com</title>
+  <link rel="icon" href="images/venture-only-logo.png">
+
+</head>
+
+<body>
+
+  <!-- header section starts  -->
+
+  <header class="header">
+
+    <a href="#" class="logo"><i class="fas fa-business-time"></i>VENTURE</a>
+
+
+    <div class="fas fa-bars"></div>
+
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">home</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#service">services</a></li>
+        <li><a href="#team">team</a></li>
+        <li><a href="#contact">Register</a></li>
+        <li><button id="loginbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Log In</button></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      
+    </nav>
+	
+  </header>
+  <div class="modal fade mb-3" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <div class="modal-body">
+		<form id="login" class="login" method="post" action="login">
+			<input type="email" name="Uemail" id="Uemail" placeholder="E-mail" class="form-control col-12">
+			<br>
+			<input class="form-control col-12" type="Password" name="Pass" id="Pass" placeholder="Password">
+			<br><br>
+			<button class="btn-outline-primary" type="submit" name="log" id="log">Log In</button>
+			<br><br>
+			<input class="checkbox" type="checkbox" name="remember" id="check">
+			<span>Remember me</span>
+			<br>
+        </form>
+		</div>
+		</div>
+	</div>
+	</div>
+
+
+  <!-- header section ends -->
+
+  <!-- home section starts  -->
+
+  <section id="home" class="home">
+
+    <h1 class="banner">Freelance Services Marketplace</h1>
+    <h3 class="slogan">Find the perfect freelance services for your business</h3>
+    <a href="#contact"><button>get started</button></a>
+
+
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+
+    <div class="fas fa-cog nut1"></div>
+    <div class="fas fa-cog nut2"></div>
+
+
+  </section>
+
+
+  <!-- home section ends -->
+
+
+  <!-- abuout section starts  -->
+
+  <section id="about" class="about">
+
+    <h1 class="heading">about us</h1>
+
+    <div class="row">
+
+      <div class="content">
+        <h3>A whole world of freelance talent at your fingertips</h3>
+        <ul style="list-style-type: circle">
+          <li>The best for every budget</li>
+          <p>Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
+          <span id="dots"></span>
+          <span id="more">
+            <li>Quality work done quickly</li>
+            <p>Find the right freelancer to begin working on your project within minutes.</p>
+            <li>Protected payments, every time</li>
+            <p>Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
+          </span>
+          <button id="mybtn" class="btn">read more</button>
+      </div>
+
+      <div class="image">
+        <img src="images/about-image.svg" alt="">
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <!-- abuout section ends  -->
+
+  <!-- service section starts  -->
+
+  <section id="service" class="service">
+
+    <h1 class="heading">our services</h1>
+
+    <div class="row">
+
+      <div class="image">
+        <img src="images/webdesign.jpg" alt="web design">
+      </div>
+      <div class="content">
+        <h3>Website Development</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <button class="btn">read more</button>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="content">
+        <h3>Word Press</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <a href="#"><button class="btn">read more</button></a>
+      </div>
+      <div class="image">
+        <img src="images/wordpress.jpg" alt="Word Press">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+
+      <div class="image">
+        <img src="images/logodesign.jpg" alt="Logo">
+      </div>
+      <div class="content">
+        <h3>Logo Design</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <a href="#"><button class="btn">read more</button></a>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="content">
+        <h3>Video Explainer</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <a href="#"><button class="btn">read more</button></a>
+      </div>
+      <div class="image">
+        <img src="images/videoexplainer.svg" alt="Video explainer">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+
+      <div class="image">
+        <img src="images/nftart.png" alt="NFT ART">
+      </div>
+      <div class="content">
+        <h3>NFT Art</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <a href="#"><button class="btn">read more</button></a>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="content">
+        <h3>Graphic Design</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem, tempore hic deserunt vel
+          temporibus aperiam recusandae ratione, obcaecati at qui accusamus enim, laudantium eveniet. Inventore voluptas
+          nemo placeat. Voluptas.</p>
+        <a href="#"><button class="btn">read more</button></a>
+      </div>
+      <div class="image">
+        <img src="images/graphicdesign.jpg" alt="Grapic Design">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- service section ends -->
+
+  <!-- team section starts  -->
+
+  <section id="team" class="team">
+
+    <h1 class="heading">our team</h1>
+
+    <div class="row">
+
+      <div class="card">
+        <div class="image">
+          <img src="images/sami.jpg" alt="sami">
+        </div>
+        <div class="info">
+          <h3>Nazmus Sakib Sami</h3>
+          <span>CEO</span>
+          <div class="icons">
+            <a href="https://www.facebook.com/profile.php?id=100009999453608" target="blank"
+              class="fab fa-facebook-f"></a>
+            <a href="https://twitter.com/NazmussakibSam2" target="blank" class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com/sn_sami/" target="blank" class="fab fa-instagram"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="image">
+          <img src="images/wasif.jpg" alt="wasif">
+        </div>
+        <div class="info">
+          <h3>Wasif Ahmed</h3>
+          <span>President</span>
+          <div class="icons">
+            <a href="https://www.facebook.com/wasif.hamid.716" target="blank" class="fab fa-facebook-f"></a>
+            <a href="https://twitter.com/hamidwasif1" target="blank" class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com/wasif.hamid.716/" target="blank" class="fab fa-instagram"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- team section ends -->
+
+  <!-- contact section starts  -->
+
+  <section id="contact" class="contact">
+
+    <h1 class="heading">Registration Here</h1>
+
+
+    <div class="row">
+
+      <div class="image">
+        <img src="images/register.png" alt="">
+      </div>
+
+      <div class="form-container">
+        <form method="post" action="/signup">
+
+          <div class="inputBox">
+            <input type="text" placeholder="first name" name="first_name">
+            <input type="text" placeholder="last name" name="last_name">
+          </div>
+
+          <input type="email" placeholder="email" name="email">
+          <input type="password" placeholder="password" name="password">
+          <input type="submit" value="send">
+
+        </form>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- contact section ends -->
+
+  <!-- FAQ section starts  -->
+
+  <section id="faq" class="faq">
+
+    <h1 class="heading">FAQ</h1>
+
+    <div class="row">
+
+      <div class="image">
+        <img src="images/faqs.jpg" alt="faq">
+      </div>
+
+      <div class="accordion-container">
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>+</span>
+            <h3>Is my personal information safe?</h3>
+          </div>
+          <div class="accordion-body">
+            <p>We care about your privacy. You can read our <a href="https://www.fiverr.com/privacy-policy"
+                target="blank"> Privacy Policy</a> for more. The Privacy Policy is part of our Terms of Service.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>+</span>
+            <h3>How do I close my account?</h3>
+          </div>
+          <div class="accordion-body">
+            <p>We hate to see you go, but if you insist, see how to <a
+                href="https://www.fiverr.com/support/articles/360010140157" target="blank"> close your account</a>.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>+</span>
+            <h3>What is online status?</h3>
+          </div>
+          <div class="accordion-body">
+            <p>The Online Status is indicated by a small green circle next to the username, which lets you know that the
+              user is currently logged in to Fiverr's website or mobile application. For more information on defining
+              your online status, see <a
+                href="https://www.fiverr.com/support/articles/360010616038-Managing-Your-Account" target="blank">
+                Managing Your Account</a>.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>+</span>
+            <h3>How long does it take for me to receive revenues from an order?</h3>
+          </div>
+          <div class="accordion-body">
+            <p>Buyers pay Fiverr for orders in advance. Once the order is created and started, Sellers must fulfill
+              their orders as described in their Gig description and must deliver completed files and/or proof of work
+              using the Deliver Your Order button (located on the Order page). Once work is delivered, the Buyer has
+              three days to respond and post a review (or 14 days for gigs with shipping).</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>+</span>
+            <h3>Are there any fees when withdrawing revenue?</h3>
+          </div>
+          <div class="accordion-body">
+            <p>There are no fees for withdrawing through PayPal. Withdrawing by Bank Transfer or Direct deposit also
+              incur fees, see<a href="https://www.fiverr.com/support/articles/360010530278-Withdrawing-Funds"
+                target="blank"> Withdrawing Funds</a>.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- FAQ section ends -->
+
+
+  <!-- footer section starts  -->
+
+  <section class="footer">
+
+    <h1>created by Team Venture | all rights reserved.</h1>
+
+    <div class="icons">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+  </section>
+
+
+  <!-- footer section ends -->
+
+
+
+
+  <!-- jquery file link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <!-- custom js file link  -->
+
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+.dropdown-multicol {
+    /* position: absolute; */
+    right: 0;
+    left: auto;
+    width: 45rem;
+    text-align: start;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-multicol > .dropdown-col {
+    display: inline-block;
+    top: 0;
+    bottom: auto;
+    width: 32%;
+    vertical-align: top;
+}
+.dropdown-divider {
+    margin: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+}
+
+.dropdown-header {
+    color: #21c7d4;
+}
+
+.navbar-brand {
+    font-family: "Kaushan Script", cursive;
+    font-size: 2.5rem;
+}
+
+.navbar-logo{
+    vertical-align:sub;
+    width:3rem;
+}

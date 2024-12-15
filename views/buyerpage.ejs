@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark py-1">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="/index.html">
+          <img src="images/venture-only-logo.png" alt="venture-logo" class="img-fluid navbar-logo">
+          Venture
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<%=type%>/<%=id%>">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="chats/<%=id%>">Chats</a>
+            </li>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="post" action="/login">
+              <input name="searchkey" type="search" class="form-control form-control-dark" placeholder="Search..."
+                aria-label="Search">
+            </form>
+
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+  <div class="p-3 mb-2 bg-secondary vh-300">
+    <div class="row">
+      <div class="col-4">
+        <div class="card" style="width: 20rem">
+          <img class="card-img-top" src="<%=rpic%>" alt="Card image cap" />
+          <div class="card-body">
+            <h3 class="card-title">Name: <%= fname %>
+                <%=lname %>
+            </h3>
+            <p class="card-text font" style="font-size: 25px">
+              Email: <%= rmail %> <br />
+                Number: <%= rnum %>
+            </p>
+            <a href="/logout" class="btn btn-primary">Log out</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="alert alert-primary" role="alert">
+          Create Job
+        </div>
+        <form action="/job/create" method="post" class="text-center form-control form-control-lg bg-info"
+          enctype="multipart/form-data">
+          <input type="text" name="title" id="job_name" placeholder="Job name" required /><br>
+          <textarea name="description" id="job_description" placeholder="Job description" rows="4"
+            cols="50"></textarea><br>
+          <input type="number" name="days_given" id="duration" placeholder="Completion in days" required><br>
+          <label for="last_date">Bidding End Time</label>
+          <input type="Date" name="end_time" id="last_date" required><br>
+          <button class="btn btn-primary dropdown-toggle btn-lg" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Skills Needed In The Job
+          </button>
+          <div class="dropdown-menu dropdown-multicol" aria-labelledby="dropdownMenuButton1" id="myDiv">
+            <% for(i=0;i<tags.length;i++){ %>
+              <% if(i%12==0){ %>
+                <div class="dropdown-col">
+                  <% } %>
+                    <% if(i==0 || tags[i].TYPE!=tags[i-1].TYPE){ %>
+                      <h5 class="dropdown-header">
+                        <%=tags[i].TYPE%>
+                      </h5>
+                      <% } %>
+                        <div class="dropdown-item">
+                          <input type="checkbox" value=<%=tags[i].TAG_ID %> name="tags"
+                          id="drop<%=tags[i].TAG_ID %>" >
+                            <label for="drop<%=tags[i].TAG_ID %>">
+                              <%= tags[i].TAG_NAME %>
+                            </label>
+                        </div>
+                        <% if(i%12==11 || i==tags.length-1) {%>
+                </div>
+                <% } %>
+                  <% } %>
+          </div>
+          <input type="file" name="picture" id="pic" required>
+          <label for="pic">Insert Pic....</label>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+      Your created jobs
+    </div>
+
+    <div class="row">
+      <% if(created_jobs.length>0){ %>
+        <% for(let x=0; x<created_jobs.length; x++){ %>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="<%= created_jobs[x].PICTURE %> " alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= created_jobs[x].TITLE %>
+                </h5>
+                <p class="card-text">
+                  Status: <%= created_jobs[x].STATUS %><br>
+                    <% if(created_jobs[x].STATUS!="Taking Responses" ){ %>
+                      Final Cost: <%= created_jobs[x].PRICE %><br>
+                        <a class="btn btn-primary" href="job/<%= created_jobs[x].JOB_ID %>)">See More</a>
+                        <% }else{ %>
+                          Lowest Bid: <%= created_jobs[x].COST %><br>
+                            <a class="btn btn-primary" href="job/<%= created_jobs[x].JOB_ID %>/responses)">See
+                              Responses</a>
+                            <% } %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+      Services You Bought Before
+    </div>
+
+    <div class="row">
+      <% if(bought_services.length>0){ %>
+        <% for(let x=0; x<bought_services.length; x++){ %>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="<%= bought_services[x].PICTURE %> " alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= bought_services[x].TITLE %>
+                </h5>
+                <p class="card-text">
+                  Price: <%= bought_services[x].PRICE %><br>
+                    Rating: <%= bought_services[x].RATING %>/5<br>
+                </p>
+                <a href="/service/<%= bought_services[x].SERVICE_ID %> " class="btn btn-primary">See More</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+      Trending Services
+    </div>
+
+    <div class="row">
+      <% if(recent_buys.length>0){ %>
+        <% for(let x=0; x<recent_buys.length; x++){ %>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="<%= recent_buys[x].PICTURE %> " alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= recent_buys[x].TITLE %>
+                </h5>
+                <p class="card-text">
+                  Price: <%= recent_buys[x].PRICE %><br>
+                    Rating: <%= recent_buys[x].RATING %>/5<br>
+                </p>
+                <a href="/service/<%= recent_buys[x].SERVICE_ID %> " class="btn btn-primary">See More</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+
+    <div class="alert alert-success" role="alert">
+      Recommended for you
+    </div>
+    <div class="row">
+      <% if(choices.length>0){ %>
+        <% for(let x=0; x<choices.length; x++){ %>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="<%= choices[x].PICTURE %> " alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= choices[x].TITLE %>
+                </h5>
+                <p class="card-text">
+                  Price: <%= choices[x].PRICE %><br>
+                    Rating: <%= choices[x].RATING %>/5<br>
+                </p>
+                <a href="/service/<%= choices[x].SERVICE_ID %> " class="btn btn-primary">See More</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      Most sold services
+    </div>
+    <div class="row">
+      <% if(most_sold.length>0){ %>
+        <% for(let x=0; x<most_sold.length; x++){ %>
+          <div class="col">
+            <img src="<%= most_sold[x].PIC %> " alt="" class="card-img-top">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= most_sold[x].HEADER %>
+                </h5>
+                <p class="card-text">
+                  Price: <%= most_sold[x].COST %><br>
+                    Rating: <%= most_sold[x].RATING %>/5<br>
+                </p>
+                <a href="/service/<%= most_sold[x].ID %> " class="btn btn-primary">See More</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+    <div class="alert alert-info" role="alert">
+      Highest Rated services
+    </div>
+    <div class="row">
+      <% if(best.length>0){ %>
+        <% for(let x=0; x<best.length; x++){ %>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="<%= best[x].PICTURE %> " alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= best[x].TITLE %>
+                </h5>
+                <p class="card-text">
+                  Price: <%= best[x].PRICE %><br>
+                    Rating: <%= best[x].RATING %>/5<br>
+                </p>
+                <a href="/service/<%= best[x].SERVICE_ID %> " class="btn btn-primary">See More</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <%} else{ %>
+              <p>No Data found</p>
+              <%} %>
+    </div>
+  </div>
+  <script>
+    Array.from(
+      // ... node list of every checked
+      // ckeckbox control withing the #myDiv element ...
+      document.querySelectorAll('#myDiv [type="checkbox"]:checked')
+    )
+      .reduce((formData, control) => {
+
+        // ... and append key/name and value to `formData` ...
+        formData.append(control.name, control.value);
+        return formData;
+
+        // ... which is represented by the `urlencoded` object
+        // that got provided as the `reduce` task's initial value.
+      }, urlencoded);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
